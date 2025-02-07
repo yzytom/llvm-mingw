@@ -173,8 +173,9 @@ for arch in $ARCHS; do
         # target arch prefix.
         ln -sf llvm-windres$EXEEXT $arch-w64-$target_os-windres$EXEEXT
         ln -sf llvm-dlltool$EXEEXT $arch-w64-$target_os-dlltool$EXEEXT
-        for exec in ld objdump; do
-            ln -sf $exec-wrapper.sh $arch-w64-$target_os-$exec
+        for exec in objdump ar; do
+            ln -sf $exec-wrapper.sh $arch-w64-$target_os-$exec$EXEEXT
+            ln -sf $exec-wrapper.sh $exec$EXEEXT
         done
     done
 done
