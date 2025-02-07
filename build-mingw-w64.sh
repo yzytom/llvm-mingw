@@ -130,6 +130,9 @@ for arch in $ARCHS; do
     x86_64)
         FLAGS="--disable-lib32 --enable-lib64"
         ;;
+    arm64ec)
+        FLAGS="--disable-lib32 --disable-lib64 --enable-libarm64"
+        ;;
     esac
     FLAGS="$FLAGS --with-default-msvcrt=$DEFAULT_MSVCRT"
     ../configure --host=$arch-w64-mingw32 --prefix="$PREFIX/$arch-w64-mingw32" $FLAGS $CFGUARD_FLAGS $CRT_CONFIG_FLAGS
